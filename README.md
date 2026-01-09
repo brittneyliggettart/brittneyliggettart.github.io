@@ -1,1 +1,1 @@
-Brittney Liggett's art headquarters!
+Brittney Liggett's art headquarters
