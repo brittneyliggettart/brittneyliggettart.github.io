@@ -4,9 +4,247 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Brittney Liggett Art</title>
+  <meta name="description" content="Links for Brittney Liggett Art" />
+
+  <style>
+    :root{
+      --bg:#000;
+      --text:#eaeaea;
+      --muted:#bdbdbd;
+
+      /* Win95-ish */
+      --btn-face:#c0c0c0;
+      --btn-highlight:#ffffff;
+      --btn-shadow:#7a7a7a;
+      --btn-dark:#000000;
+      --accent:#00ff9c; /* subtle neon vibe without being loud */
+    }
+
+    * { box-sizing: border-box; }
+
+    body{
+      margin:0;
+      min-height:100vh;
+      background: var(--bg);
+      color: var(--text);
+      font-family: "MS Sans Serif", Tahoma, Verdana, Arial, sans-serif;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding: 24px 14px;
+    }
+
+    .wrap{
+      width: min(560px, 100%);
+    }
+
+    .header{
+      text-align:center;
+      margin-bottom: 18px;
+    }
+
+    .avatar{
+      width: 88px;
+      height: 88px;
+      border-radius: 10px;
+      margin: 0 auto 12px auto;
+      background: #111;
+      border: 2px solid var(--btn-face);
+      box-shadow:
+        inset 2px 2px 0 var(--btn-shadow),
+        inset -2px -2px 0 var(--btn-highlight);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      color: var(--accent);
+    }
+
+    h1{
+      font-size: 22px;
+      margin: 0 0 6px 0;
+      font-weight: 700;
+    }
+
+    .sub{
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.35;
+    }
+
+    .panel{
+      background: rgba(255,255,255,0.03);
+      border: 2px solid var(--btn-face);
+      box-shadow:
+        inset 2px 2px 0 var(--btn-shadow),
+        inset -2px -2px 0 var(--btn-highlight);
+      padding: 14px;
+      border-radius: 10px;
+    }
+
+    .list{
+      display:flex;
+      flex-direction:column;
+      gap: 12px;
+      margin: 0;
+      padding: 0;
+      list-style:none;
+    }
+
+    /* Win95 button look */
+    .win95-btn{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 12px;
+
+      width: 100%;
+      text-decoration:none;
+      color: #000;
+      background: var(--btn-face);
+      padding: 14px 14px;
+      border: 2px solid var(--btn-dark);
+
+      /* Raised edges */
+      box-shadow:
+        inset 2px 2px 0 var(--btn-highlight),
+        inset -2px -2px 0 var(--btn-shadow);
+
+      border-radius: 8px;
+      transition: transform 0.04s ease, filter 0.15s ease;
+      user-select:none;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .win95-btn:focus{
+      outline: 2px dotted var(--accent);
+      outline-offset: 4px;
+    }
+
+    .win95-btn:active{
+      /* Pressed look */
+      box-shadow:
+        inset -2px -2px 0 var(--btn-highlight),
+        inset 2px 2px 0 var(--btn-shadow);
+      transform: translateY(1px);
+    }
+
+    .left{
+      display:flex;
+      align-items:center;
+      gap: 10px;
+      min-width: 0;
+    }
+
+    .icon{
+      width: 22px;
+      height: 22px;
+      border-radius: 4px;
+      background: #000;
+      border: 2px solid var(--btn-dark);
+      box-shadow:
+        inset 2px 2px 0 #2a2a2a,
+        inset -2px -2px 0 #555;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size: 12px;
+      font-weight: 800;
+      color: var(--accent);
+      flex: 0 0 auto;
+    }
+
+    .label{
+      font-weight: 700;
+      font-size: 15px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .arrow{
+      font-size: 14px;
+      opacity: 0.75;
+      flex: 0 0 auto;
+    }
+
+    footer{
+      margin-top: 14px;
+      text-align:center;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .tiny{
+      display:inline-block;
+      margin-top: 8px;
+      border: 1px dashed rgba(255,255,255,0.25);
+      padding: 8px 10px;
+      border-radius: 8px;
+      background: rgba(255,255,255,0.03);
+    }
+  </style>
 </head>
-<body style="font-family: Arial, sans-serif; padding: 24px;">
-  <h1>Brittney Liggett Art</h1>
-  <p>Coming soon.</p>
+
+<body>
+  <main class="wrap" role="main">
+    <header class="header">
+      <div class="avatar" aria-hidden="true">BL</div>
+      <h1>Brittney Liggett Art</h1>
+      <p class="sub">Links &amp; shop pages — tap a button to open.</p>
+    </header>
+
+    <section class="panel" aria-label="Links">
+      <ul class="list">
+        <li>
+          <a class="win95-btn" href="https://www.tiktok.com/@brittneyliggett" target="_blank" rel="noopener">
+            <span class="left">
+              <span class="icon">TK</span>
+              <span class="label">TikTok</span>
+            </span>
+            <span class="arrow">▶</span>
+          </a>
+        </li>
+
+        <li>
+          <a class="win95-btn" href="https://www.instagram.com/brittneyliggettart" target="_blank" rel="noopener">
+            <span class="left">
+              <span class="icon">IG</span>
+              <span class="label">Instagram</span>
+            </span>
+            <span class="arrow">▶</span>
+          </a>
+        </li>
+
+        <li>
+          <a class="win95-btn" href="https://www.etsy.com/people/brittneygallatin" target="_blank" rel="noopener">
+            <span class="left">
+              <span class="icon">ET</span>
+              <span class="label">Etsy</span>
+            </span>
+            <span class="arrow">▶</span>
+          </a>
+        </li>
+
+        <li>
+          <a class="win95-btn" href="https://www.ebay.com/usr/brittneyliggettart" target="_blank" rel="noopener">
+            <span class="left">
+              <span class="icon">EB</span>
+              <span class="label">eBay</span>
+            </span>
+            <span class="arrow">▶</span>
+          </a>
+        </li>
+      </ul>
+    </section>
+
+    <footer>
+      <div class="tiny">
+        Tip: add this page’s URL to your TikTok/IG bio.
+      </div>
+    </footer>
+  </main>
 </body>
 </html>
