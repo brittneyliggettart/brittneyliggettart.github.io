@@ -36,62 +36,84 @@
         radial-gradient(900px 700px at 90% 20%, #34d5ff1e 0%, transparent 55%),
         linear-gradient(180deg, var(--bg1), var(--bg2), var(--bg3));
       overflow-x:hidden;
+      position:relative;
     }
 
-    /* background dots (same feel as homepage) */
+    /* Make dots always visible (and above the background) */
     body::before{
       content:"";
       position:fixed;
       inset:0;
       pointer-events:none;
-      opacity:.85;
+      z-index:0;
+      opacity:.95;
+
       background:
-        radial-gradient(6px 6px at 12% 18%, rgba(255,255,255,.28) 40%, transparent 41%),
-        radial-gradient(5px 5px at 82% 24%, rgba(255,255,255,.26) 40%, transparent 41%),
-        radial-gradient(5px 5px at 60% 80%, rgba(255,255,255,.22) 40%, transparent 41%),
-        radial-gradient(4.5px 4.5px at 30% 72%, rgba(255,255,255,.24) 40%, transparent 41%),
+        /* a few larger soft dots */
+        radial-gradient(7px 7px at 12% 18%, rgba(255,255,255,.25) 45%, transparent 46%),
+        radial-gradient(6px 6px at 82% 24%, rgba(255,255,255,.22) 45%, transparent 46%),
+        radial-gradient(6px 6px at 60% 80%, rgba(255,255,255,.20) 45%, transparent 46%),
+        radial-gradient(5px 5px at 30% 72%, rgba(255,255,255,.22) 45%, transparent 46%),
 
-        radial-gradient(3.5px 3.5px at 18% 40%, rgba(255,255,255,.55) 40%, transparent 41%),
-        radial-gradient(3.5px 3.5px at 72% 64%, rgba(255,255,255,.55) 40%, transparent 41%),
+        /* medium dots */
+        radial-gradient(4px 4px at 18% 40%, rgba(255,255,255,.50) 45%, transparent 46%),
+        radial-gradient(4px 4px at 72% 64%, rgba(255,255,255,.50) 45%, transparent 46%),
+        radial-gradient(4px 4px at 90% 44%, rgba(255,255,255,.45) 45%, transparent 46%),
 
-        radial-gradient(2.2px 2.2px at 8% 10%, rgba(255,255,255,.65) 40%, transparent 41%),
-        radial-gradient(2.2px 2.2px at 16% 28%, rgba(255,255,255,.65) 40%, transparent 41%),
-        radial-gradient(2.2px 2.2px at 24% 54%, rgba(255,255,255,.60) 40%, transparent 41%),
-        radial-gradient(2.2px 2.2px at 34% 18%, rgba(255,255,255,.60) 40%, transparent 41%),
-        radial-gradient(2.2px 2.2px at 48% 72%, rgba(255,255,255,.58) 40%, transparent 41%),
-        radial-gradient(2.2px 2.2px at 66% 28%, rgba(255,255,255,.55) 40%, transparent 41%),
-        radial-gradient(2.2px 2.2px at 90% 62%, rgba(255,255,255,.55) 40%, transparent 41%);
-      filter: drop-shadow(0 0 12px rgba(255,255,255,.1));
+        /* lots of small pinpricks */
+        radial-gradient(2.6px 2.6px at 8% 10%, rgba(255,255,255,.62) 45%, transparent 46%),
+        radial-gradient(2.6px 2.6px at 16% 28%, rgba(255,255,255,.62) 45%, transparent 46%),
+        radial-gradient(2.6px 2.6px at 24% 54%, rgba(255,255,255,.58) 45%, transparent 46%),
+        radial-gradient(2.6px 2.6px at 34% 18%, rgba(255,255,255,.58) 45%, transparent 46%),
+        radial-gradient(2.6px 2.6px at 42% 40%, rgba(255,255,255,.56) 45%, transparent 46%),
+        radial-gradient(2.6px 2.6px at 48% 72%, rgba(255,255,255,.56) 45%, transparent 46%),
+        radial-gradient(2.6px 2.6px at 56% 12%, rgba(255,255,255,.52) 45%, transparent 46%),
+        radial-gradient(2.6px 2.6px at 66% 28%, rgba(255,255,255,.52) 45%, transparent 46%),
+        radial-gradient(2.6px 2.6px at 74% 48%, rgba(255,255,255,.52) 45%, transparent 46%),
+        radial-gradient(2.6px 2.6px at 78% 70%, rgba(255,255,255,.52) 45%, transparent 46%),
+        radial-gradient(2.6px 2.6px at 86% 34%, rgba(255,255,255,.52) 45%, transparent 46%),
+        radial-gradient(2.6px 2.6px at 90% 62%, rgba(255,255,255,.52) 45%, transparent 46%),
+        radial-gradient(2.6px 2.6px at 30% 90%, rgba(255,255,255,.48) 45%, transparent 46%),
+        radial-gradient(2.6px 2.6px at 62% 88%, rgba(255,255,255,.48) 45%, transparent 46%);
+
+      filter: drop-shadow(0 0 14px rgba(255,255,255,.12));
     }
 
+    /* Content wrapper matches homepage */
     .wrap{
+      position:relative;
+      z-index:1; /* keep content above dots */
       display:flex;
       justify-content:center;
       padding:44px 16px;
     }
 
+    /* Match homepage card width exactly */
     .card{
       width:min(420px,100%);
       background:var(--panel);
       border:1px solid var(--border);
       border-radius:28px;
-      padding:26px 18px 22px;
+      padding:28px 18px 22px;
       box-shadow:var(--shadow);
       backdrop-filter:blur(10px);
     }
 
+    .top{
+      text-align:center;
+      margin-bottom:12px;
+    }
+
     h1{
       margin:0 0 6px;
-      text-align:center;
       font-size:20px;
       text-transform:uppercase;
       letter-spacing:.4px;
     }
 
     .sub{
-      text-align:center;
+      margin:0;
       color:var(--muted);
-      margin-bottom:18px;
       font-size:14px;
     }
 
@@ -161,8 +183,10 @@
 <body>
   <div class="wrap">
     <main class="card">
-      <h1>Contact Brittney Liggett</h1>
-      <p class="sub">Questions, commissions, or collaborations</p>
+      <header class="top">
+        <h1>Contact Brittney Liggett</h1>
+        <p class="sub">Fill this out and it will email me — I typically reply within 24–48 hours.</p>
+      </header>
 
       <form action="https://formspree.io/f/xvzzpdpq" method="POST">
         <label for="name">Name</label>
@@ -184,9 +208,7 @@
           <a class="back" href="/">Back to home</a>
         </div>
 
-        <div class="note">
-          After sending, you’ll see a Formspree confirmation page.
-        </div>
+        <div class="note">If you don’t hear back, feel free to message me again — sometimes emails get filtered.</div>
       </form>
     </main>
   </div>
