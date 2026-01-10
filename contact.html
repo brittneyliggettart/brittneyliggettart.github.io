@@ -129,12 +129,8 @@
     <h1>Contact Brittney Liggett</h1>
     <p class="sub">Questions, commissions, or collaborations</p>
 
-    <form action="https://formspree.io/f/xvzzpdpq" method="POST">
-  <input type="hidden" name="_next" value="/thanks.html">
-  <input type="hidden" name="_format" value="plain">
-  <input type="hidden" name="_subject" value="New message from brittneyliggett.art">
-
-
+    <!-- IMPORTANT: No action attribute — handled by JS -->
+    <form id="contactForm">
       <label for="name">Name</label>
       <input id="name" name="name" required>
 
@@ -147,7 +143,7 @@
       <label for="message">Message</label>
       <textarea id="message" name="message" required></textarea>
 
-      <!-- spam honeypot -->
+      <!-- Honeypot spam trap -->
       <input type="text" name="_gotcha" style="display:none">
 
       <div class="actions">
@@ -155,8 +151,43 @@
         <a class="back" href="/">Back to home</a>
       </div>
 
-      <div class="note">Your message will be emailed to me directly.</div>
+      <div class="note">
+        Your message will be emailed to me directly.
+      </div>
     </form>
   </main>
+
+  <!-- FORM SUBMIT SCRIPT -->
+  <script>
+    const form = document.getElementById("contactForm");
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      // Stop bots
+      const gotcha = form.querySelector('input[name="_gotcha"]');
+      if (gotcha && gotcha.value) return;
+
+      const data = new FormData(form);
+
+      try {
+        const response = await fetch("https://formspree.io/f/xvzzpdpq", {
+          method: "POST",
+          body: data,
+          headers: {
+            "Accept": "application/json"
+          }
+        });
+
+        if (response.ok) {
+          window.location.href = "/thanks.html";
+        } else {
+          alert("Something went wrong sending your message. Please try again.");
+        }
+      } catch (error) {
+        alert("Network error. Please try again.");
+      }
+    });
+  </script>
 </body>
 </html>
