@@ -36,7 +36,7 @@
       overflow-x:hidden;
     }
 
-    /* Star field — more dots + some larger soft ones */
+    /* Star field */
     body::before{
       content:"";
       position:fixed;
@@ -44,18 +44,15 @@
       pointer-events:none;
       opacity:.85;
       background:
-        /* LARGE soft dots */
         radial-gradient(6px 6px at 12% 18%, rgba(255,255,255,.28) 40%, transparent 41%),
         radial-gradient(5px 5px at 82% 24%, rgba(255,255,255,.26) 40%, transparent 41%),
         radial-gradient(5px 5px at 60% 80%, rgba(255,255,255,.22) 40%, transparent 41%),
         radial-gradient(4.5px 4.5px at 30% 72%, rgba(255,255,255,.24) 40%, transparent 41%),
 
-        /* medium dots */
         radial-gradient(3.5px 3.5px at 18% 40%, rgba(255,255,255,.55) 40%, transparent 41%),
         radial-gradient(3.5px 3.5px at 72% 64%, rgba(255,255,255,.55) 40%, transparent 41%),
         radial-gradient(3.5px 3.5px at 90% 44%, rgba(255,255,255,.50) 40%, transparent 41%),
 
-        /* lots of small pinpricks */
         radial-gradient(2.2px 2.2px at 8% 10%, rgba(255,255,255,.65) 40%, transparent 41%),
         radial-gradient(2.2px 2.2px at 16% 28%, rgba(255,255,255,.65) 40%, transparent 41%),
         radial-gradient(2.2px 2.2px at 24% 54%, rgba(255,255,255,.60) 40%, transparent 41%),
@@ -67,9 +64,7 @@
         radial-gradient(2.2px 2.2px at 74% 48%, rgba(255,255,255,.55) 40%, transparent 41%),
         radial-gradient(2.2px 2.2px at 78% 70%, rgba(255,255,255,.55) 40%, transparent 41%),
         radial-gradient(2.2px 2.2px at 86% 34%, rgba(255,255,255,.55) 40%, transparent 41%),
-        radial-gradient(2.2px 2.2px at 90% 62%, rgba(255,255,255,.55) 40%, transparent 41%),
-        radial-gradient(2.2px 2.2px at 30% 90%, rgba(255,255,255,.50) 40%, transparent 41%),
-        radial-gradient(2.2px 2.2px at 62% 88%, rgba(255,255,255,.50) 40%, transparent 41%);
+        radial-gradient(2.2px 2.2px at 90% 62%, rgba(255,255,255,.55) 40%, transparent 41%);
       filter: drop-shadow(0 0 12px rgba(255,255,255,.10));
     }
 
@@ -86,7 +81,6 @@
       padding:28px 18px 22px;
       box-shadow:var(--shadow);
       backdrop-filter:blur(10px);
-      /* BORDER REMOVED PER REQUEST */
       border:none;
     }
 
@@ -112,7 +106,6 @@
       text-align:center;
       margin:18px 0 10px;
       font-weight:700;
-      letter-spacing:.2px;
     }
 
     .gifWrap{
@@ -136,65 +129,40 @@
       font-size:14px;
     }
 
-    .links{
+    .smallBtnWrap{
       display:flex;
-      flex-direction:column;
-      gap:12px;
+      justify-content:center;
       margin-top:10px;
     }
 
-    .btn{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      padding:14px;
-      border-radius:18px;
-      text-decoration:none;
-      color:var(--text);
+    .smallBtn{
+      padding:10px 22px;
+      border-radius:16px;
       background:var(--btn);
+      color:var(--text);
+      text-decoration:none;
+      font-weight:600;
       border:1px solid rgba(255,255,255,.18);
       transition:.15s;
     }
 
-    .btn:hover{
+    .smallBtn:hover{
       background:var(--btnHover);
       transform:translateY(-1px);
     }
 
-    .left{
-      display:flex;
-      align-items:center;
-      gap:12px;
-      font-weight:600;
-      min-width:0;
-    }
-
-    .iconBox{
-      width:40px;
-      height:40px;
-      border-radius:14px;
-      display:grid;
-      place-items:center;
-      background:rgba(255,255,255,.14);
-      border:1px solid rgba(255,255,255,.18);
-      flex:0 0 auto;
-    }
-
-    .iconBox img{
-      width:22px;
-      height:22px;
+    .backLink{
       display:block;
-    }
-
-    .label{
-      white-space:nowrap;
-      overflow:hidden;
-      text-overflow:ellipsis;
-    }
-
-    .arrow{
-      opacity:.85;
-      flex:0 0 auto;
+      margin-top:14px;
+      text-align:center;
+      font-size:14px;
+      color:var(--muted);
+      text-decoration:none;
+      border-bottom:1px dashed rgba(255,255,255,.35);
+      width:fit-content;
+      margin-left:auto;
+      margin-right:auto;
+      padding-bottom:2px;
     }
 
     .foot{
@@ -216,31 +184,19 @@
 
       <h2 class="sectionTitle">Don’t Blink, You’ll Miss It</h2>
 
-      <!-- Update the src below if your GIF lives somewhere else -->
       <div class="gifWrap">
-        <img src="/assets/aceo-dont-blink.gif" alt="Don't Blink, You'll Miss It — animated ACEO GIF">
+        <img src="/assets/aceo-dont-blink.gif" alt="Don't Blink, You'll Miss It animated ACEO">
       </div>
 
       <p class="callout">Available on eBay</p>
 
-      <section class="links" aria-label="Shop">
-        <a class="btn" href="https://www.ebay.com/usr/brittneyliggettart" target="_blank" rel="noopener">
-          <span class="left">
-            <span class="iconBox"><img src="assets/icons/ebay.svg" alt=""></span>
-            <span class="label">Shop</span>
-          </span>
-          <span class="arrow">▶</span>
+      <div class="smallBtnWrap">
+        <a class="smallBtn" href="https://www.ebay.com/usr/brittneyliggettart" target="_blank" rel="noopener">
+          Shop
         </a>
+      </div>
 
-        <!-- Optional: add a back button that matches your style -->
-        <a class="btn" href="/" aria-label="Back to home">
-          <span class="left">
-            <span class="iconBox"><img src="assets/icons/home.svg" alt=""></span>
-            <span class="label">Back to Home</span>
-          </span>
-          <span class="arrow">◀</span>
-        </a>
-      </section>
+      <a class="backLink" href="/">Back to home</a>
 
       <div class="foot">© <span id="year"></span> Brittney Liggett</div>
     </main>
